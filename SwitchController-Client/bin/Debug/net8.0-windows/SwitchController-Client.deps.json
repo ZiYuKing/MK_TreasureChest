@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SwitchController-Client/1.0.0": {
+        "dependencies": {
+          "MK_Plugins": "1.0.0"
+        },
+        "runtime": {
+          "SwitchController-Client.dll": {}
+        }
+      },
+      "MK_Plugins/1.0.0": {
+        "runtime": {
+          "MK_Plugins.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SwitchController-Client/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MK_Plugins/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

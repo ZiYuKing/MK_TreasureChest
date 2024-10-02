@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MK_Plugins")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29c04e8c06affe4786555231de058d7c1ee820e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05ec95248661d5df9c4d29cc2b87ac8f3ec90731")]
 [assembly: System.Reflection.AssemblyProductAttribute("MK_Plugins")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MK_Plugins")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
