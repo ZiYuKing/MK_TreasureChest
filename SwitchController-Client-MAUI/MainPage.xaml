@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwitchController_Client_MAUI.MainPage"
+             Title="Switch">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                x:Name="SwitchPicture"
+                HeightRequest="230"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Switch的截图" />
+
+            <Editor 
+                AutoSize="TextChanges" 
+                Text="192.168.0.0" 
+                x:Name="SwitchIP_Text" 
+                VerticalOptions="Center" 
+                TextChanged="SwitchIP_Text_Changed" 
+                HorizontalTextAlignment="Center"
+                IsVisible="True">
+            </Editor>
+            
+            <Button
+                x:Name="CounterBtn"
+                Text="连接" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+
+                <Button  Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="ZL_BTN" Text="ZL" Pressed="ZL_BTN_Pressed" Released="ZL_BTN_Released"></Button>
+                <Button  Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="L_BTN" Text="L" Clicked="L_BTN_Click"></Button>
+                <Button  Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="MINUS_BTN" Text="—" Clicked="MINUS_BTN_Click"></Button>
+                <Button  Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="PLUS_BTN" Text="十" Clicked="PLUS_BTN_Click"></Button>
+                <Button  Grid.Column="3" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="R_BTN" Text="R" Clicked="R_BTN_Click"></Button>
+                <Button  Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="ZR_BTN" Text="ZR" Clicked="ZR_BTN_Click"></Button>
+
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+
+                <Button  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_LEFTUP_BTN" Text="↖️" Pressed="LSTICK_LEFTUP_BTN_Pressed" Released="LSTICK_Released"></Button>
+                <Button  Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_RIGHTUP_BTN" Text="↗️" Pressed="LSTICK_RIGHTUP_BTN_Pressed" Released="LSTICK_Released"></Button>
+                <Button  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_UP_BTN" Text="🔼" Pressed="LSTICK_UP_BTN_Pressed" Released="LSTICK_Released"></Button>
+                <Button  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_DOWN_BTN" Text="🔽" Pressed="LSTICK_DOWN_BTN_Pressed" Released="LSTICK_Released"></Button>
+                <Button  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_LEFTDOWN_BTN" Text="↙️" Pressed="LSTICK_LEFTDOWN_BTN_Pressed" Released="LSTICK_Released"></Button>
+                <Button  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_RIGHTDOWN_BTN" Text="↘️" Pressed="LSTICK_RIGHTDOWN_BTN_Pressed" Released="LSTICK_Released"></Button>
+
+                <Button  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_LEFT_BTN" Text="◀️" Pressed="LSTICK_LEFT_BTN_Pressed" Released="LSTICK_Released"></Button>
+                <Button  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_BTN" Text="⭕" Pressed="LSTICK_BTN_Pressed" Released="LSTICK_BTN_Released"></Button>
+                <Button  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="LSTICK_RIGHT_BTN" Text="▶️" Pressed="LSTICK_RIGHT_BTN_Pressed" Released="LSTICK_Released"></Button>
+
+                <Button  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="X_BTN" Text="X" Clicked="X_BTN_Click"></Button>
+
+                <Button  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="Y_BTN" Text="Y" Clicked="Y_BTN_Click"></Button>
+                <Button  Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="A_BTN" Text="A" Clicked="A_BTN_Click"></Button>
+
+                <Button  Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="B_BTN" Text="B" Clicked="B_BTN_Click"></Button>
+
+
+
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <Button  Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_LEFTUP_BTN" Text="↖️" Pressed="RSTICK_LEFTUP_BTN_Pressed" Released="RSTICK_Released"></Button>
+                <Button  Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_RIGHTUP_BTN" Text="↗️" Pressed="RSTICK_RIGHTUP_BTN_Pressed" Released="RSTICK_Released"></Button>
+                <Button  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_UP_BTN" Text="🔼" Pressed="RSTICK_UP_BTN_Pressed" Released="RSTICK_Released"></Button>
+                <Button  Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_DOWN_BTN" Text="🔽" Pressed="RSTICK_DOWN_BTN_Pressed" Released="RSTICK_Released"></Button>
+                <Button  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_LEFTDOWN_BTN" Text="↙️" Pressed="RSTICK_LEFTDOWN_BTN_Pressed" Released="RSTICK_Released"></Button>
+                <Button  Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_RIGHTDOWN_BTN" Text="↘️" Pressed="RSTICK_RIGHTDOWN_BTN_Pressed" Released="RSTICK_Released"></Button>
+
+                <Button  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_LEFT_BTN" Text="◀️" Pressed="RSTICK_LEFT_BTN_Pressed" Released="RSTICK_Released"></Button>
+                <Button  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_BTN" Text="⭕" Pressed="RSTICK_BTN_Pressed" Released="RSTICK_BTN_Released"></Button>
+                <Button  Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="RSTICK_RIGHT_BTN" Text="▶️" Pressed="RSTICK_RIGHT_BTN_Pressed" Released="RSTICK_Released"></Button>
+
+                <Button  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="DUP_BTN" Text="↑" Clicked="DUP_BTN_Click"></Button>
+
+                <Button  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="DLEFT_BTN" Text="←" Clicked="DLEFT_BTN_Click"></Button>
+                <Button  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="DRIGHT_BTN" Text="→" Clicked="DRIGHT_BTN_Click"></Button>
+
+                <Button  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="DDOWN_BTN" Text="↓" Clicked="DDOWN_BTN_Click"></Button>
+
+
+
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+
+
+
+                <Button  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="Center" x:Name="CAPTURE_BTN" Text="⚪" Pressed="CAPTURE_BTN_Pressed" Released="CAPTURE_BTN_Released"></Button>
+                <Button  Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="Center" x:Name="HOME_BTN" Text="🏠" Pressed="HOME_BTN_Pressed" Released="HOME_BTN_Released"></Button>
+                <Button  Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="Start" VerticalOptions="Center" x:Name="ShowScreen_BTN" Text="刷新画面" Clicked="ShowScreen_BTN_Click"></Button>
+                <Button  Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="End" VerticalOptions="Center" x:Name="SaveImage_BTN" Text="保存截图" Clicked="SaveImage_BTN_Click"></Button>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

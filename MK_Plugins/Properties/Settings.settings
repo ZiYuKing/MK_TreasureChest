@@ -1,0 +1,87 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MK_Plugins.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SwitchIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.0</Value>
+    </Setting>
+    <Setting Name="AutoCopy" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PSWiFi" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Skin" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Skin2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Key_A" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">76</Value>
+    </Setting>
+    <Setting Name="Key_B" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">75</Value>
+    </Setting>
+    <Setting Name="Key_X" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">73</Value>
+    </Setting>
+    <Setting Name="Key_Y" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">74</Value>
+    </Setting>
+    <Setting Name="Key_R" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">85</Value>
+    </Setting>
+    <Setting Name="Key_L" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">69</Value>
+    </Setting>
+    <Setting Name="Key_ZR" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">79</Value>
+    </Setting>
+    <Setting Name="Key_ZL" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">81</Value>
+    </Setting>
+    <Setting Name="Key_RSTICK" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">77</Value>
+    </Setting>
+    <Setting Name="Key_LSTICK" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">90</Value>
+    </Setting>
+    <Setting Name="Key_PLUS" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">70</Value>
+    </Setting>
+    <Setting Name="Key_MINUS" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">72</Value>
+    </Setting>
+    <Setting Name="Key_DUP" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">87</Value>
+    </Setting>
+    <Setting Name="Key_DDOWN" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">83</Value>
+    </Setting>
+    <Setting Name="Key_DLEFT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">65</Value>
+    </Setting>
+    <Setting Name="Key_DRIGHT" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">65</Value>
+    </Setting>
+    <Setting Name="Key_HOME" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">66</Value>
+    </Setting>
+    <Setting Name="Key_CAPTURE" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">86</Value>
+    </Setting>
+    <Setting Name="KeyBool" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="teadecode" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SwitchPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
