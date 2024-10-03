@@ -99,6 +99,11 @@ namespace MK_Plugins.PulginsGUI
                 else
                     Settings.Default.SwitchPort = port;
             }
+            if (textBox.Text == "6000")
+            {
+                InputSwitchPort.Text = "6000";
+                Settings.Default.SwitchPort = 6000;
+            }
             Settings.Default.Save();
         }
         private async void ButtonConnect_Click(object sender, EventArgs e)
