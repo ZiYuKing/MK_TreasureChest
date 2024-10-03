@@ -1,4 +1,0 @@
-C:\Users\King\Desktop\Code\MK_TreasureChest\SwitchController-Client\bin\Release\net8.0-windows\publish\win-x64\SwitchController-Client.pdb
-C:\Users\King\Desktop\Code\MK_TreasureChest\SwitchController-Client\bin\Release\net8.0-windows\publish\win-x64\MK_Plugins.pdb
-C:\Users\King\Desktop\Code\MK_TreasureChest\SwitchController-Client\bin\Release\net8.0-windows\publish\win-x64\MK_Plugins.dll.config
-C:\Users\King\Desktop\Code\MK_TreasureChest\SwitchController-Client\bin\Release\net8.0-windows\publish\win-x64\SwitchController-Client.exe
