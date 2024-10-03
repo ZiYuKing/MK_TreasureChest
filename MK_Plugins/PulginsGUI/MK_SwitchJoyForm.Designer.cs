@@ -93,7 +93,7 @@ namespace MK_Plugins.PulginsGUI
             // 
             InputSwitchIP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             InputSwitchIP.ImeMode = ImeMode.NoControl;
-            InputSwitchIP.Location = new Point(151, 28);
+            InputSwitchIP.Location = new Point(163, 28);
             InputSwitchIP.Name = "InputSwitchIP";
             InputSwitchIP.RightToLeft = RightToLeft.No;
             InputSwitchIP.Size = new Size(147, 23);
@@ -621,7 +621,7 @@ namespace MK_Plugins.PulginsGUI
             // 
             InputSwitchPort.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             InputSwitchPort.ImeMode = ImeMode.NoControl;
-            InputSwitchPort.Location = new Point(308, 28);
+            InputSwitchPort.Location = new Point(323, 28);
             InputSwitchPort.Name = "InputSwitchPort";
             InputSwitchPort.RightToLeft = RightToLeft.No;
             InputSwitchPort.Size = new Size(78, 23);
@@ -634,7 +634,7 @@ namespace MK_Plugins.PulginsGUI
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(297, 31);
+            label1.Location = new Point(312, 31);
             label1.Name = "label1";
             label1.Size = new Size(11, 17);
             label1.TabIndex = 24;
