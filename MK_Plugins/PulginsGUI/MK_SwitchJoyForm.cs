@@ -8,6 +8,7 @@ using PKHeX.Core;
 using MK_Plugins.Subforms;
 using static SysBot.Base.SwitchButton;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace MK_Plugins.PulginsGUI
 {
@@ -42,8 +43,10 @@ namespace MK_Plugins.PulginsGUI
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            InputSwitchIP.Text = Settings.Default.SwitchIP;
-            InputSwitchPort.Text = Settings.Default.SwitchPort.ToString();
+            if (Settings.Default.SwitchPort == 6000)
+                InputSwitchIP.Text = Settings.Default.SwitchIP;
+            else
+                InputSwitchIP.Text = Settings.Default.SwitchIP + ":" + Settings.Default.SwitchPort;
             pictureBox5.BackgroundImage = Resource.Switch_0;
             SwitchPicture.Image = Resource.SwitchKing;
             OperatingInterface.BackgroundImage = Settings.Default.Skin switch
@@ -82,34 +85,27 @@ namespace MK_Plugins.PulginsGUI
         private void InputSwitchIP_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text != "192.168.0.0")
+            string text = textBox.Text;
+            string pattern = @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?::([0-9]{1,5}))?$";
+            bool isValid = Regex.IsMatch(text, pattern);
+            if (InputSwitchIP.Focused && !isValid)
             {
-                Settings.Default.SwitchIP = textBox.Text;
+                return;
             }
-            Settings.Default.Save();
-        }
-        private void InputSwitchPort_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.Text != "6000" && textBox.Text.Length > 0 )
+            string[] parts = text.Split(':');
+            string ip = parts[0];
+            int port = parts.Length > 1 ? int.Parse(parts[1]) : 6000;
+            if (port < 0 || port > 65535)
             {
-                var flag = int.TryParse(textBox.Text, out int port);
-                if (!flag)
-                    InputSwitchPort.Text = "6000";
-                else
-                    Settings.Default.SwitchPort = port;
+                port = 6000;
             }
-            if (textBox.Text == "6000")
-            {
-                InputSwitchPort.Text = "6000";
-                Settings.Default.SwitchPort = 6000;
-            }
+            Settings.Default.SwitchPort = port;
+            Settings.Default.SwitchIP = ip;
             Settings.Default.Save();
         }
         private async void ButtonConnect_Click(object sender, EventArgs e)
         {
             InputSwitchIP.ReadOnly = true;
-            InputSwitchPort.ReadOnly = true;
             CON = SwitchConnection;
             SOUR = Source;
             ButtonStop.Enabled = true;
@@ -126,7 +122,6 @@ namespace MK_Plugins.PulginsGUI
             ButtonStop.Enabled = false;
             ShowScreen_BTN.Enabled = false;
             InputSwitchIP.ReadOnly = false;
-            InputSwitchPort.ReadOnly = false;
             if (SwitchConnection.Connected)
                 SwitchConnection.Disconnect();
             else

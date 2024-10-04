@@ -2,6 +2,8 @@
 using System.Net.Sockets;
 using static SysBot.Base.SwitchButton;
 using CommunityToolkit.Maui.Storage;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text.RegularExpressions;
 
 namespace SwitchController_Client_MAUI
 {
@@ -15,19 +17,38 @@ namespace SwitchController_Client_MAUI
         {
             InitializeComponent();
             var ip = Preferences.Default.Get("IP", "192.168.1.1");
-            SwitchIP_Text.Text = ip;
+            var port = Preferences.Default.Get("Port", 6000);
+            if (port == 6000)
+                SwitchIP_Text.Text = ip;
+            else
+                SwitchIP_Text.Text = ip + ":" + port.ToString();
             Token = Source.Token;
 
         }
 
         private void SwitchIP_Text_Changed(object sender, EventArgs e)
         {
-            Preferences.Set("IP", SwitchIP_Text.Text);
+            var text = SwitchIP_Text.Text;
+            string pattern = @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?::([0-9]{1,5}))?$";
+            bool isValid = Regex.IsMatch(text, pattern);
+            if (!isValid)
+            {
+                return;
+            }
+            string[] parts = text.Split(':');
+            string ip = parts[0];
+            int port = parts.Length > 1 ? int.Parse(parts[1]) : 6000;
+            if (port < 0 || port > 65535)
+            {
+                port = 6000;
+            }
+            Preferences.Set("IP", ip);
+            Preferences.Set("Port", port);
             Config = new SwitchConnectionConfig
             {
                 Protocol = SwitchProtocol.WiFi, // 假设您使用的是 WiFi
-                IP = SwitchIP_Text.Text,
-                Port = 6000 // 假设您的端口是 6000
+                IP = ip,
+                Port = port // 假设您的端口是 6000
             };
             SwitchConnection = SwitchSocketAsync.CreateInstance(Config);
         }

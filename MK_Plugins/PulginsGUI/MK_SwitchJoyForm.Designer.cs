@@ -66,8 +66,6 @@ namespace MK_Plugins.PulginsGUI
             Menu_Client = new ToolStripMenuItem();
             Menu_Settings = new ToolStripMenuItem();
             SaveImage_Item = new ToolStripMenuItem();
-            InputSwitchPort = new TextBox();
-            label1 = new Label();
             OperatingInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -93,7 +91,7 @@ namespace MK_Plugins.PulginsGUI
             // 
             InputSwitchIP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             InputSwitchIP.ImeMode = ImeMode.NoControl;
-            InputSwitchIP.Location = new Point(163, 28);
+            InputSwitchIP.Location = new Point(220, 28);
             InputSwitchIP.Name = "InputSwitchIP";
             InputSwitchIP.RightToLeft = RightToLeft.No;
             InputSwitchIP.Size = new Size(147, 23);
@@ -617,36 +615,11 @@ namespace MK_Plugins.PulginsGUI
             SaveImage_Item.Text = "保存截图";
             SaveImage_Item.Click += SaveImage_Item_Click;
             // 
-            // InputSwitchPort
-            // 
-            InputSwitchPort.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            InputSwitchPort.ImeMode = ImeMode.NoControl;
-            InputSwitchPort.Location = new Point(323, 28);
-            InputSwitchPort.Name = "InputSwitchPort";
-            InputSwitchPort.RightToLeft = RightToLeft.No;
-            InputSwitchPort.Size = new Size(78, 23);
-            InputSwitchPort.TabIndex = 23;
-            InputSwitchPort.TabStop = false;
-            InputSwitchPort.Text = "6000";
-            InputSwitchPort.TextAlign = HorizontalAlignment.Center;
-            InputSwitchPort.TextChanged += InputSwitchPort_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(312, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(11, 17);
-            label1.TabIndex = 24;
-            label1.Text = ":";
-            // 
             // MK_SwitchControllerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(571, 670);
-            Controls.Add(label1);
-            Controls.Add(InputSwitchPort);
             Controls.Add(SwitchPicture);
             Controls.Add(menuStrip1);
             Controls.Add(ShowScreen_BTN);
@@ -709,7 +682,5 @@ namespace MK_Plugins.PulginsGUI
         private ToolStripMenuItem Menu_Client;
         private ToolStripMenuItem Menu_Settings;
         private ToolStripMenuItem SaveImage_Item;
-        private TextBox InputSwitchPort;
-        private Label label1;
     }
 }
