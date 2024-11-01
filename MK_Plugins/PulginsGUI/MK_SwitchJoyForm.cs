@@ -19,8 +19,7 @@ namespace MK_Plugins.PulginsGUI
         private static SwitchSocketAsync? CON { get; set; }
         private static CancellationTokenSource? SOUR { get; set; }
         private CancellationTokenSource Source = new();
-        private bool isDragging = false;
-        private Point startPosition;
+        private bool IsRunning = false;
         public MK_SwitchControllerForm()
         {
             Text = "Switch | 未连接！！";
@@ -207,10 +206,13 @@ namespace MK_Plugins.PulginsGUI
         {
             if (CON != null && SwitchConnection.Connected)
             {
+                if (IsRunning) return;
+                IsRunning = true;
                 await CON.SendAsync(SwitchCommand.Click(b), token).ConfigureAwait(false);
                 await Task.Delay(delay, token).ConfigureAwait(false);
                 ShinyPilotLamp();
                 SwitchPicturetransfer();
+                IsRunning = false;
             }
             else
                 MessageBox.Show("暂未连接switch，请在连接完成后再使用！！");

@@ -13,6 +13,7 @@ namespace SwitchController_Client_MAUI
         private static SwitchSocketAsync SwitchConnection;
         private CancellationTokenSource Source = new();
         private CancellationToken Token = new();
+        private bool IsRunning = false;
         public MainPage()
         {
             InitializeComponent();
@@ -110,8 +111,11 @@ namespace SwitchController_Client_MAUI
         {
             if (SwitchConnection != null && SwitchConnection.Connected)
             {
+                if (IsRunning) return;
+                IsRunning = true;
                 await SwitchConnection.SendAsync(SwitchCommand.Click(b), token).ConfigureAwait(false);
                 await SwitchPicturetransfer(token);
+                IsRunning = false;
             }
             else
                 await DisplayAlert("警告", "暂未连接switch，请在连接完成后再使用！！", "取消");
