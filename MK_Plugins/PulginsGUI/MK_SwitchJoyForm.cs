@@ -206,13 +206,13 @@ namespace MK_Plugins.PulginsGUI
         {
             if (CON != null && SwitchConnection.Connected)
             {
-                if (IsRunning) return;
+                if (IsRunning) 
+                    return;
                 IsRunning = true;
                 await CON.SendAsync(SwitchCommand.Click(b), token).ConfigureAwait(false);
                 await Task.Delay(delay, token).ConfigureAwait(false);
                 ShinyPilotLamp();
                 SwitchPicturetransfer();
-                IsRunning = false;
             }
             else
                 MessageBox.Show("暂未连接switch，请在连接完成后再使用！！");
@@ -454,9 +454,18 @@ namespace MK_Plugins.PulginsGUI
             var image = ByteToImage(pic);
             var destimgae = ResizeImage(image, 356, 205);
             SwitchPicture.Image = destimgae;
+            IsRunning = false;
         }
         private void ShowScreen_BTN_Click(object sender, EventArgs e)
         {
+            if (!SwitchConnection.Connected)
+            {
+                MessageBox.Show("你还未连接Switch！！");
+                return;
+            }
+            if (IsRunning) 
+                return;
+            IsRunning = true;
             SwitchPicturetransfer();
         }
 

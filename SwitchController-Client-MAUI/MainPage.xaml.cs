@@ -105,17 +105,18 @@ namespace SwitchController_Client_MAUI
             byte[] pic = await SwitchConnection.Screengrab(Token).ConfigureAwait(false) ?? Array.Empty<byte>();
             ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(pic));
             SwitchPicture.Source = imageSource;
+            IsRunning = false;
         }
 
         public async Task Click(SwitchButton b, int delay, CancellationToken token)
         {
             if (SwitchConnection != null && SwitchConnection.Connected)
             {
-                if (IsRunning) return;
+                if (IsRunning) 
+                    return;
                 IsRunning = true;
                 await SwitchConnection.SendAsync(SwitchCommand.Click(b), token).ConfigureAwait(false);
                 await SwitchPicturetransfer(token);
-                IsRunning = false;
             }
             else
                 await DisplayAlert("警告", "暂未连接switch，请在连接完成后再使用！！", "取消");
@@ -346,6 +347,12 @@ namespace SwitchController_Client_MAUI
 
         private async void ShowScreen_BTN_Click(object sender, EventArgs e)
         {
+            if (SwitchConnection == null || !SwitchConnection.Connected) 
+                await DisplayAlert("警告", "暂未连接switch，请在连接完成后再使用！！", "取消");
+
+            if (IsRunning)
+                return;
+            IsRunning = true;
             await SwitchPicturetransfer(Token);
         }
         private async void SaveImage_BTN_Click(object sender, EventArgs e)
