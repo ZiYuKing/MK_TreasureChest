@@ -10,7 +10,7 @@ namespace MK_Plugins.PulginsGUI
 {
     public partial class MK_TradePartnerViewerForm : Form
     {
-        private readonly static SwitchConnectionConfig Config = new() { Protocol = SwitchProtocol.WiFi, IP = Settings.Default.SwitchIP, Port = 6000 };
+        private readonly static SwitchConnectionConfig Config = new() { Protocol = SwitchProtocol.WiFi, IP = Settings.Default.SwitchIP, Port = Settings.Default.SwitchPort };
         private readonly static SwitchSocketAsync SwitchConnection = new(Config);
 
         private static string OT = string.Empty;
@@ -69,6 +69,17 @@ namespace MK_Plugins.PulginsGUI
             {
                 Settings.Default.SwitchIP = textBox.Text;
                 //Config.IP = textBox.Text;
+            }
+            Settings.Default.Save();
+        }
+
+        private void InputSwitchPort_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (int.TryParse(textBox.Text, out int port) && port > 0 && port < 65536)
+            {
+                Settings.Default.SwitchPort = port;
+                //Config.Port = textBox.Text;
             }
             Settings.Default.Save();
         }

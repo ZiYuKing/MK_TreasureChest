@@ -85,21 +85,24 @@ namespace MK_Plugins.PulginsGUI
         {
             TextBox textBox = (TextBox)sender;
             string text = textBox.Text;
-            string pattern = @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?::([0-9]{1,5}))?$";
+            string pattern = @"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
             bool isValid = Regex.IsMatch(text, pattern);
-            if (InputSwitchIP.Focused && !isValid)
+            if (!isValid)
             {
                 return;
             }
-            string[] parts = text.Split(':');
-            string ip = parts[0];
-            int port = parts.Length > 1 ? int.Parse(parts[1]) : 6000;
-            if (port < 0 || port > 65535)
+            Settings.Default.SwitchIP = text;
+            Settings.Default.Save();
+        }
+
+        private void InputSwitchPort_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (int.TryParse(textBox.Text, out int port) && port > 0 && port < 65536)
             {
-                port = 6000;
+                Settings.Default.SwitchPort = port;
+                //Config.Port = textBox.Text;
             }
-            Settings.Default.SwitchPort = port;
-            Settings.Default.SwitchIP = ip;
             Settings.Default.Save();
         }
         private async void ButtonConnect_Click(object sender, EventArgs e)
@@ -206,7 +209,7 @@ namespace MK_Plugins.PulginsGUI
         {
             if (CON != null && SwitchConnection.Connected)
             {
-                if (IsRunning) 
+                if (IsRunning)
                     return;
                 IsRunning = true;
                 await CON.SendAsync(SwitchCommand.Click(b), token).ConfigureAwait(false);
@@ -463,7 +466,7 @@ namespace MK_Plugins.PulginsGUI
                 MessageBox.Show("你还未连接Switch！！");
                 return;
             }
-            if (IsRunning) 
+            if (IsRunning)
                 return;
             IsRunning = true;
             SwitchPicturetransfer();
@@ -531,7 +534,7 @@ namespace MK_Plugins.PulginsGUI
 
         }
 
-        
+
 
         //private void LSTICK_BTN_MouseDown(object sender, MouseEventArgs e)
         //{

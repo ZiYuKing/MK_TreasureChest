@@ -55,13 +55,15 @@ namespace MK_Plugins.PulginsGUI
             PrintButton = new Button();
             WriteButton = new Button();
             Number_Box = new ComboBox();
+            InputSwitchPort = new TextBox();
+            label6 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // InputSwitchIP
             // 
             InputSwitchIP.Font = new Font("Consolas", 9F);
-            InputSwitchIP.Location = new Point(166, 21);
+            InputSwitchIP.Location = new Point(112, 21);
             InputSwitchIP.Name = "InputSwitchIP";
             InputSwitchIP.Size = new Size(160, 22);
             InputSwitchIP.TabIndex = 0;
@@ -262,13 +264,13 @@ namespace MK_Plugins.PulginsGUI
             // 
             // PrintButton
             // 
+            PrintButton.Enabled = false;
             PrintButton.Location = new Point(493, 325);
             PrintButton.Name = "PrintButton";
             PrintButton.Size = new Size(72, 25);
             PrintButton.TabIndex = 7;
             PrintButton.Text = "打印";
             PrintButton.UseVisualStyleBackColor = true;
-            PrintButton.Enabled = false;
             PrintButton.Click += PrintButton_Click;
             // 
             // WriteButton
@@ -289,14 +291,35 @@ namespace MK_Plugins.PulginsGUI
             Number_Box.Name = "Number_Box";
             Number_Box.Size = new Size(219, 25);
             Number_Box.TabIndex = 18;
-            Number_Box.SelectedIndex = 0;
             Number_Box.SelectedIndexChanged += Number_Box_SelectedIndexChanged;
+            // 
+            // InputSwitchPort
+            // 
+            InputSwitchPort.Font = new Font("Consolas", 9F);
+            InputSwitchPort.Location = new Point(293, 21);
+            InputSwitchPort.Name = "InputSwitchPort";
+            InputSwitchPort.Size = new Size(80, 22);
+            InputSwitchPort.TabIndex = 19;
+            InputSwitchPort.Text = "6000";
+            InputSwitchPort.TextAlign = HorizontalAlignment.Center;
+            InputSwitchPort.TextChanged += InputSwitchPort_TextChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(276, 22);
+            label6.Name = "label6";
+            label6.Size = new Size(11, 17);
+            label6.TabIndex = 13;
+            label6.Text = ":";
             // 
             // MK_TradePartnerViewerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(702, 362);
+            Controls.Add(label6);
+            Controls.Add(InputSwitchPort);
             Controls.Add(Number_Box);
             Controls.Add(WriteButton);
             Controls.Add(PrintButton);
@@ -342,5 +365,7 @@ namespace MK_Plugins.PulginsGUI
         private TextBox OutNID;
         private Button WriteButton;
         private ComboBox Number_Box;
+        private TextBox InputSwitchPort;
+        private Label label6;
     }
 }
