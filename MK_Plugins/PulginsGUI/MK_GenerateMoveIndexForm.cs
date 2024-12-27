@@ -9,7 +9,18 @@ namespace MK_Plugins.PulginsGUI
         public BOX BoxIndex = BOX.ONE;
         private ISaveFileProvider? SAV { get; }
         private IPKMView? Editor { get; }
-        public string AvatarPath { get; set; } = "";
+
+        private string avatarPath = "";
+
+        public string GetAvatarPath()
+        {
+            return avatarPath;
+        }
+
+        public void SetAvatarPath(string value)
+        {
+            avatarPath = value;
+        }
 
         private bool _isOtherMode = false;
         public MK_GenerateMoveIndexForm(ISaveFileProvider sav, IPKMView editor)
@@ -147,10 +158,10 @@ namespace MK_Plugins.PulginsGUI
         }
         private string GetImageName()
         {
-            if (AvatarPath == "")
+            if (GetAvatarPath() == "")
                 return "";
             string result = "";
-            string[] fileNames = Directory.GetFiles(AvatarPath);
+            string[] fileNames = Directory.GetFiles(GetAvatarPath());
             foreach (string fileName in fileNames)
             {
 
@@ -252,7 +263,7 @@ namespace MK_Plugins.PulginsGUI
             if (folderDialog.ShowDialog() == DialogResult.OK)
             {
                 avatarPath_TextBox.Text = folderDialog.SelectedPath;
-                AvatarPath = folderDialog.SelectedPath;
+                SetAvatarPath(folderDialog.SelectedPath);
             }
         }
 

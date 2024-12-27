@@ -4,6 +4,7 @@ using static SysBot.Base.SwitchButton;
 using CommunityToolkit.Maui.Storage;
 using static System.Net.Mime.MediaTypeNames;
 using System.Text.RegularExpressions;
+using Microsoft.Maui.Storage;
 
 namespace SwitchController_Client_MAUI
 {

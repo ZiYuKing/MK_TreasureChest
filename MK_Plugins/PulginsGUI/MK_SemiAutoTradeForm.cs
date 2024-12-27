@@ -26,7 +26,19 @@ namespace MK_Plugins.PulginsGUI
         protected TradePartnerSV OurTrainer = new TradePartnerSV();
         private ISaveFileProvider SAV { get; }
         private IPKMView Editor { get; }
-        public LanguageID GameLang { get; private set; }
+
+        private LanguageID gameLang;
+
+        public LanguageID GetGameLang()
+        {
+            return gameLang;
+        }
+
+        private void SetGameLang(LanguageID value)
+        {
+            gameLang = value;
+        }
+
         public bool tradelink = false;
         private int j = 0;
         private int n = 0;
@@ -110,7 +122,7 @@ namespace MK_Plugins.PulginsGUI
                                 Text = $"Switch | 已连接成功 | 剑盾模式";
                                 GamesModel = "剑盾";
                                 var idbytes = await SwitchConnection.ReadBytesAsync(Offsets.LinkTradePartnerNameOffset_SWSH - 0x8, 8, token).ConfigureAwait(false);
-                                GameLang = (LanguageID)idbytes[5];
+                                SetGameLang((LanguageID)idbytes[5]);
                             }
                             else
                             {
@@ -352,7 +364,7 @@ namespace MK_Plugins.PulginsGUI
                     await Click(A, 1_500, token).ConfigureAwait(false);
 
                 // All other languages require an extra A press at this menu.
-                if (GameLang != LanguageID.English && GameLang != LanguageID.Spanish)
+                if (GetGameLang() != LanguageID.English && GetGameLang() != LanguageID.Spanish)
                     await Click(A, 1_500, token).ConfigureAwait(false);
 
                 await EnterLinkCode(Convert.ToInt32(Code_Text.Text),0_100, token);
@@ -428,7 +440,7 @@ namespace MK_Plugins.PulginsGUI
             for (int i = 0; i < 5; i++)
                 await Click(A, 1_500, token).ConfigureAwait(false);
             // Extra A press for Japanese.
-            if (GameLang == LanguageID.Japanese)
+            if (GetGameLang() == LanguageID.Japanese)
                 await Click(A, 1_500, token).ConfigureAwait(false);
             await Click(B, 1_500, token).ConfigureAwait(false);
             await Click(B, 1_500, token).ConfigureAwait(false);

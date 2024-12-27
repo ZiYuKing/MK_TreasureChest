@@ -1,21 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <RootNamespace>SwitchController_Client</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>switch.ico</ApplicationIcon>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="switch.ico" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\MK_Plugins\MK_Plugins.csproj" />
   </ItemGroup>
-
 </Project>
